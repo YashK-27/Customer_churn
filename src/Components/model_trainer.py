@@ -38,7 +38,7 @@ class ModelTrainer:
                 test_array[:,-1]
             )
             models = {
-                # "SVM": SVC(),
+                "SVM": SVC(),
                 # "K Neighbours Classifier": KNeighborsClassifier(),
                 "Logistic Regression": LogisticRegression(),
                 # "Gaussian NB":GaussianNB(),
@@ -46,13 +46,13 @@ class ModelTrainer:
                 }
             
             params = {
-                # "SVM":{
-                #     'C': [0.1, 1, 10, 100],
-                #     'kernel': ['linear', 'poly', 'rbf', 'sigmoid'],
-                #     'gamma': ['scale', 'auto', 0.1, 1, 10],
-                #     'degree': [2, 3, 4],
-                #     'coef0': [0.0, 0.1, 0.5, 1.0]
-                # }
+                "SVM":{
+                    'C': [0.1, 1],
+                    'kernel': ['rbf', 'sigmoid'],
+                    'gamma': ['scale', 'auto'],
+                    'degree': [2],
+                    'coef0': [0.0, 0.1]
+                },
 
                 # "K Neighbours Classifier":{
                 #     'n_neighbors': [3, 5, 7, 9],
@@ -62,10 +62,10 @@ class ModelTrainer:
                 # },
 
                 "Logistic Regression":{
-                    'C': [0.001, 0.01, 0.1, 1, 10, 100],
-                    'penalty': ['l1', 'l2'],
-                    'solver': ['liblinear', 'newton-cg', 'lbfgs', 'sag', 'saga'],
-                    'max_iter': [100, 200, 300, 500, 1000]
+                    'C': [0.001, 0.01, 0.1],
+                    'penalty': ['l2'],
+                    'solver': ['liblinear', 'lbfgs', 'newton-cg', 'sag', 'saga'],
+                    'max_iter': [1000]
                 },
 
                 # "Gaussian NB":{
